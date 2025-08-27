@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashIt - Your Premier Shopping Destination</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'flashit-green': '#059669',
+                        'flashit-green-light': '#10b981',
+                        'flashit-green-dark': '#047857',
+                        'flashit-gray': '#374151',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-flashit-green shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-2 text-white text-sm border-b border-flashit-green-light">
+                <div class="hidden sm:flex space-x-4">
+                    <span><i class="fas fa-phone mr-1"></i> 1-800-FLASHIT</span>
+                    <span><i class="fas fa-envelope mr-1"></i> support@flashit.com</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" onclick="showLogin()" class="hover:text-yellow-300 transition-colors">Sign In</a>
+                    <a href="#" onclick="showRegister()" class="hover:text-yellow-300 transition-colors">Register</a>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between py-4">
+                <a href="#" onclick="showHome()" class="text-2xl font-bold text-white hover:text-yellow-300 transition-colors">
+                    <i class="fas fa-bolt mr-2"></i>FlashIt
+                </a>
+
+                <div class="flex-1 max-w-2xl mx-4 sm:mx-8">
+                    <div class="flex">
+                        <input type="text" id="search-input" placeholder="Search products..."
+                               class="flex-1 px-4 py-2 rounded-l-lg border-0 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <button type="button" onclick="searchProducts()" class="bg-yellow-500 hover:bg-yellow-600 px-6 py-2 rounded-r-lg text-white transition-colors">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="#" onclick="showCart()" class="flex items-center text-white hover:text-yellow-300 transition-colors relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="hidden md:inline ml-2 font-medium">Cart</span>
+                    <span id="cart-count" class="bg-yellow-500 text-flashit-green text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center absolute -top-2 -right-3 sm:-right-4" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="bg-flashit-green-dark">
+            <div class="container mx-auto px-4">
+                <ul class="flex space-x-4 sm:space-x-8 py-3 overflow-x-auto">
+                    <li><a href="#" onclick="showHome()" class="text-white hover:text-yellow-300 transition-colors font-medium whitespace-nowrap">Home</a></li>
+                    <li><a href="#" onclick="showProducts('all')" class="text-white hover:text-yellow-300 transition-colors font-medium whitespace-nowrap">All Products</a></li>
+                    <li><a href="#" onclick="showProducts('electronics')" class="text-white hover:text-yellow-300 transition-colors font-medium whitespace-nowrap">Electronics</a></li>
+                    <li><a href="#" onclick="showProducts('fashion')" class="text-white hover:text-yellow-300 transition-colors font-medium whitespace-nowrap">Fashion</a></li>
+                    <li><a href="#" onclick="showProducts('home')" class="text-white hover:text-yellow-300 transition-colors font-medium whitespace-nowrap">Home & Garden</a></li>
+                    <li><a href="#" onclick="showProducts('books')" class="text-white hover:text-yellow-300 transition-colors font-medium whitespace-nowrap">Books & Media</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="bg-gradient-to-r from-flashit-green to-flashit-green-light text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Welcome to FlashIt</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Discover amazing products at unbeatable prices. Fast shipping, exceptional quality, and outstanding customer service.</p>
+                <button onclick="showProducts('all')" class="bg-yellow-500 hover:bg-yellow-600 text-flashit-green px-8 py-3 rounded-lg font-bold text-lg transition-colors">
+                    Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-flashit-gray">Featured Products</h2>
+                <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-flashit-gray text-white mt-16 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 FlashIt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
